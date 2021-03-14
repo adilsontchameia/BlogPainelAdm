@@ -1,0 +1,53 @@
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbar') %>
+
+<div class="container">
+    <hr>
+        <h2>Artigos</h2>
+        <a class="btn btn-success" href="/admin/articles/new">Criar Novo Artigo</a>
+    <hr>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Slug</th>
+            <th>Categorias</th>
+            <th>Acoes</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% articles.forEach(articles => {%>
+            <tr>
+                <td><%=articles.id%></td>
+                <td><%=articles.title%></td>
+                <td><%=articles.slug%></td>
+                <td><%=articles.category.title%></td>
+                <td>
+                    <form method="POST" action="/articles/delete" style="display:inline;" onsubmit="confirmarDelecao(event,this)">
+                        <input type="hidden" name="id" value="<%= articles.id %>">
+                        <button class="btn btn-danger">Apagar</button>    
+                    </form>
+                </td> 
+            </tr>
+        
+        <% }) %>
+       
+        </tbody>
+    
+    </table>
+</div>
+
+<%- include('../../partials/footer') %>
+<script>
+    function confirmarDelecao(event,form){
+        event.preventDefault(); //impedir que o formulario seja enviado
+        var decision = confirm("Deseja deseja deletar este ?")
+        if(decision) {
+            form.submit();
+        }
+    }
+</script>

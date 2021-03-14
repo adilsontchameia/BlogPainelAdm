@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+<%- include('./partials/homenavbar') %>
+<body>
+
+<div class="container">
+    <hr>
+    <div class="jumbotron">
+        <h1 class="display-6">Bem-vindo</h1>
+        <p class="lead">Este é um simples blog de Adilson Chameia.</p>
+        <hr class="my-4">
+        <p>Descrição detalhada aqui!</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
+      </div>
+      <hr>
+      <% articles.forEach(article => { %>
+          <div class="card">
+              <div class="card-header">
+                  <h2><%= article.title %></h2>
+              </div>
+              <div class="card-body">
+                  <a href="/<%= article.slug %>" class="btn btn-success">Ler artigo</a>
+              </div>
+          </div>
+          <br>
+      <% }) %>
+</div>
+
+</body>
+<%- include('./partials/footer') %>

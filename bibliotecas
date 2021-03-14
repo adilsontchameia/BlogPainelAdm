@@ -1,0 +1,31 @@
+npm install --save express
+npm install --save sequelize
+npm install --save mysql2
+npm install --save body-parser //formularios
+npm install --save ejs //rendrizar html(template engine)
+
+
+Boa pratica separar todos arquivos.
+
+Separar por pastas de acordo com a arquitetura.
+
+* Pastas de Scripts - Categoria
+* Pastas de Scripts - Artigos
+* Pastas de Scripts - Painel Adm
+
+Cada pasta com funcionalidade diferente.
+
+//Controller
+Lugar onde fica toda logica da app.
+Como exemplo > Rotas
+
+Slug - indereco de algo.
+exemplo:
+
+Desenvolvimento Web
+desenvolvimento-Web
+React Js
+react-js
+
+Relacionamento de mao dupla:
+criacao de dois Relacionamentos
