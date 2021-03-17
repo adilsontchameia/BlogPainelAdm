@@ -55,7 +55,10 @@ app.get("/",(req,res) => {
             ['id','DESC']
         ]
     }).then(articles => {
-        res.render("index", {articles: articles});
+        //Listar categorias apartir do banco.
+        Category.findAll().then(categories => {
+            res.render("index", {articles: articles, categories: categories});
+        })
     });
    
 });
@@ -68,8 +71,11 @@ app.get("/:slug",(req,res) => {
             slug: slug
         }
     }).then(articles => {
-        if(articles != undefined) {
-        res.render("article",{articles: articles})
+        if(articles != undefined) { 
+      //Listar categorias apartir do banco.
+      Category.findAll().then(categories => {
+      res.render("article", {articles: articles, categories: categories});
+            })
         } else {
         res.render("/")
         }
